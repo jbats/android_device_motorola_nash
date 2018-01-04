@@ -94,6 +94,10 @@ PRODUCT_PROPERTY_OVERRIDES += \
     dalvik.vm.heapminfree=512k \
     dalvik.vm.heapmaxfree=8m
 
+# MotoActions
+PRODUCT_PACKAGES += \
+    MotoActions
+
 # Display
 PRODUCT_PACKAGES += \
     copybit.msm8998 \
