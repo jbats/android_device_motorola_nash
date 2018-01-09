@@ -280,6 +280,13 @@ PRODUCT_PACKAGES += \
     librmnetctl \
     libprotobuf-cpp-full
 
+# RCS
+PRODUCT_PACKAGES += \
+    rcs_service_aidl \
+    rcs_service_aidl.xml \
+    rcs_service_api \
+    rcs_service_api.xml
+
 # Recovery
 PRODUCT_COPY_FILES += \
     device/motorola/nash/recovery/root/init.recovery.nash.rc:root/init.recovery.nash.rc \
