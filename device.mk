@@ -103,6 +103,7 @@ PRODUCT_PACKAGES += \
     libdisplayconfig \
     libgenlock \
     liboverlay \
+    libqdMetaData.system \
     libtinyxml
 
 PRODUCT_COPY_FILES += \
