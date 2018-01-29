@@ -74,6 +74,9 @@ ro.sf.hwrotation=180
 # Mods
 sys.mod.platformsdkversion=205
 
+# Mods
+sys.mod.platformsdkversion=205
+
 # NFC
 ro.nfc.port=I2C
 
