@@ -186,7 +186,7 @@ PRODUCT_PACKAGES += \
     init.mmi.diag_mdlog.rc \
     init.mmi.hab.rc \
     init.mmi.hab.sh \
-    init.mmi.modprobe.rc \
+    init.mmi.laser.sh \
     init.mmi.overlay.rc \
     init.mmi.ramdump.rc \
     init.mmi.usb.sh \
