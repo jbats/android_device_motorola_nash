@@ -164,7 +164,6 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
 # IMS
@@ -237,10 +236,6 @@ PRODUCT_PACKAGES += \
 # LED packages
 PRODUCT_PACKAGES += \
     android.hardware.light@2.0-service.nash
-
-# LineageActions
-PRODUCT_PACKAGES += \
-    LineageActions
 
 # Media
 PRODUCT_COPY_FILES += \
