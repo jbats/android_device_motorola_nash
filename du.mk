@@ -47,9 +47,6 @@ PRODUCT_STATIC_BOOT_CONTROL_HAL := \
 # Overlays
 DEVICE_PACKAGE_OVERLAYS += device/motorola/nash/overlay
 
-PRODUCT_ENFORCE_RRO_TARGETS := \
-    framework-res
-
 # TWRP
 ifeq ($(WITH_TWRP),true)
 $(call inherit-product, device/motorola/nash/twrp/twrp.mk)
