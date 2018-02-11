@@ -168,19 +168,11 @@ PRODUCT_PACKAGES += \
 # HIDL
 PRODUCT_PACKAGES += \
     android.hidl.base@1.0 \
-    android.hidl.manager@1.0 \
     android.hidl.manager@1.0-java
 
 # IMS
 PRODUCT_PACKAGES += \
-    com.android.ims.rcsmanager \
-    com.android.ims.rcsmanager.xml \
-    ims-ext-common \
-    RcsService \
-    PresencePolling \
-    telephony-ext
-
-PRODUCT_BOOT_JARS += telephony-ext
+    ims-ext-common
 
 # Init
 PRODUCT_COPY_FILES += \
@@ -375,6 +367,13 @@ PRODUCT_PACKAGES += \
 # Shims
 PRODUCT_PACKAGES += \
     libqsap_shim
+
+# Telephony
+PRODUCT_PACKAGES += \
+    telephony-ext
+
+PRODUCT_BOOT_JARS += \
+telephony-ext
 
 # Tethering
 PRODUCT_PROPERTY_OVERRIDES += \
