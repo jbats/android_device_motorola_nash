@@ -14,6 +14,8 @@
 # limitations under the License.
 #
 
+$(call inherit-product, device/motorola/nash/hidl/hidl.mk)
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
