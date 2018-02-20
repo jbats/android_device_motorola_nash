@@ -16,6 +16,9 @@
 
 $(call inherit-product, device/motorola/nash/hidl/hidl.mk)
 
+# Vendor blobs
+$(call inherit-product-if-exists, vendor/motorola/nash/nash-vendor.mk)
+
 # AAPT
 PRODUCT_AAPT_CONFIG := normal
 PRODUCT_AAPT_PREF_CONFIG := 560dpi
@@ -23,12 +26,6 @@ PRODUCT_AAPT_PREBUILT_DPI := xxxhdpi xxhdpi xhdpi hdpi
 
 # Audio
 PRODUCT_PACKAGES += \
-    android.hardware.audio@2.0-impl \
-    android.hardware.audio@2.0-service \
-    android.hardware.audio.effect@2.0-impl \
-    android.hardware.audio.effect@2.0-service \
-    android.hardware.soundtrigger@2.0-impl \
-    android.hardware.soundtrigger@2.0-service \
     audiod \
     audio.a2dp.default \
     audio.primary.msm8998 \
@@ -57,18 +54,11 @@ PRODUCT_COPY_FILES += \
 
 # Bluetooth
 PRODUCT_PACKAGES += \
-    android.hardware.bluetooth@1.0-impl \
-    android.hardware.bluetooth@1.0-service \
     libbt-vendor
 
 # Boot animation
 TARGET_SCREEN_HEIGHT := 2560
 TARGET_SCREEN_WIDTH := 1440
-
-# Boot control HAL
-PRODUCT_PACKAGES += \
-    android.hardware.boot@1.0-impl \
-    android.hardware.boot@1.0-service
 
 # Camera
 PRODUCT_COPY_FILES += \
@@ -78,9 +68,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/nash/configs/camera/mot_ov5695_chromatix.xml:/system/etc/camera/mot_ov5695_chromatix.xml
 
 PRODUCT_PACKAGES += \
-    android.hardware.camera.provider@2.4-impl \
-    android.hardware.camera.provider@2.4-service \
-    camera.device@3.2-impl \
     libxml2 \
     Snap
 
@@ -108,13 +95,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 
 # Display
 PRODUCT_PACKAGES += \
-    android.hardware.graphics.allocator@2.0-impl \
-    android.hardware.graphics.allocator@2.0-service \
-    android.hardware.graphics.composer@2.1-impl \
-    android.hardware.graphics.composer@2.1-service \
-    android.hardware.graphics.mapper@2.0-impl \
-    android.hardware.memtrack@1.0-impl \
-    android.hardware.memtrack@1.0-service \
     copybit.msm8998 \
     gralloc.msm8998 \
     hwcomposer.msm8998 \
@@ -124,15 +104,6 @@ PRODUCT_PACKAGES += \
     liboverlay \
     libtinyxml
 
-# DRM
-PRODUCT_PACKAGES += \
-    android.hardware.drm@1.0-impl \
-    android.hardware.drm@1.0-service
-
-# Fingerprint
-PRODUCT_PACKAGES += \
-    android.hardware.biometrics.fingerprint@2.1-service
-
 PRODUCT_COPY_FILES += \
     device/motorola/nash/keylayout/uinput-fpc.kl:$(TARGET_COPY_OUT_VENDOR)/usr/keylayout/uinput-fpc.kl
 
@@ -140,15 +111,8 @@ PRODUCT_COPY_FILES += \
 GAPPS_VARIANT := nano
 $(call inherit-product-if-exists, vendor/opengapps/build/opengapps-packages.mk)
 
-# Gatekeeper HAL
-PRODUCT_PACKAGES += \
-    android.hardware.gatekeeper@1.0-impl \
-    android.hardware.gatekeeper@1.0-service
-
 # GPS
 PRODUCT_PACKAGES += \
-    android.hardware.gnss@1.0-impl-qti \
-    android.hardware.gnss@1.0-service-qti \
     libgnss \
     libgnsspps \
     libvehiclenetwork-native
@@ -164,16 +128,6 @@ PRODUCT_PACKAGES += \
 
 # GMS
 PRODUCT_GMS_CLIENTID_BASE := android-motorola
-
-# Health
-PRODUCT_PACKAGES += \
-    android.hardware.health@1.0-impl \
-    android.hardware.health@1.0-service
-
-# HIDL
-PRODUCT_PACKAGES += \
-    android.hidl.base@1.0 \
-    android.hidl.manager@1.0-java
 
 # IMS
 PRODUCT_PACKAGES += \
@@ -235,15 +189,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     $(LOCAL_PATH)/keylayout/Vendor_22b8_Product_ffff.kl:system/usr/keylayout/Vendor_22b8_Product_ffff.kl
 
-# Keymaster HAL
-PRODUCT_PACKAGES += \
-    android.hardware.keymaster@3.0-impl \
-    android.hardware.keymaster@3.0-service
-
-# LED packages
-PRODUCT_PACKAGES += \
-    android.hardware.light@2.0-service.nash
-
 # Media
 PRODUCT_COPY_FILES += \
     device/motorola/nash/media/media_profiles.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_profiles.xml \
@@ -255,14 +200,8 @@ PRODUCT_COPY_FILES += \
     frameworks/av/media/libstagefright/data/media_codecs_google_telephony.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_telephony.xml \
     frameworks/av/media/libstagefright/data/media_codecs_google_video.xml:$(TARGET_COPY_OUT_VENDOR)/etc/media_codecs_google_video.xml
 
-# Network
-PRODUCT_PACKAGES += \
-    netutils-wrapper-1.0
-
 # NFC
 PRODUCT_PACKAGES += \
-    android.hardware.nfc@1.0-impl \
-    android.hardware.nfc@1.0-service \
     com.android.nfc_extras \
     nfc_nci.msm8998 \
     NfcNci \
@@ -326,10 +265,6 @@ PRODUCT_PACKAGES += \
     libOmxVenc \
     libstagefrighthw
 
-# Power
-PRODUCT_PACKAGES += \
-    android.hardware.power@1.1-service-qti
-
 PRODUCT_COPY_FILES += \
     device/motorola/nash/configs/powerhint.xml:$(TARGET_COPY_OUT_VENDOR)/etc/powerhint.xml
 
@@ -349,10 +284,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/nash/recovery/root/init.recovery.usb.configfs.rc:root/init.recovery.usb.configfs.rc \
     device/motorola/nash/recovery/root/init.recovery.usb.rc:root/init.recovery.usb.rc
 
-# RenderScript HAL
-PRODUCT_PACKAGES += \
-    android.hardware.renderscript@1.0-impl
-
 # Seccomp
 PRODUCT_COPY_FILES += \
     device/motorola/nash/seccomp/mediacodec-seccomp.policy:$(TARGET_COPY_OUT_VENDOR)/etc/seccomp_policy/mediacodec.policy \
@@ -362,10 +293,6 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     device/motorola/nash/configs/sensors/sensor_def_qcomdev.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/sensor_def_qcomdev.conf \
     device/motorola/nash/configs/sensors/hals.conf:$(TARGET_COPY_OUT_VENDOR)/etc/sensors/hals.conf
-
-PRODUCT_PACKAGES += \
-    android.hardware.sensors@1.0-impl \
-    android.hardware.sensors@1.0-service
 
 # Shims
 PRODUCT_PACKAGES += \
@@ -386,10 +313,6 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_PACKAGES += \
     textclassifier.smartselection.bundle1
 
-# Thermal
-PRODUCT_PACKAGES += \
-    android.hardware.thermal@1.1-service.nash
-
 # Touchscreen
 PRODUCT_PACKAGES += \
     libtinyxml2
@@ -397,25 +320,12 @@ PRODUCT_PACKAGES += \
 # Update engine
 PRODUCT_PACKAGES += brillo_update_payload
 
-# USB
-PRODUCT_PACKAGES += \
-    android.hardware.usb@1.0-service
-
 # Verity
 PRODUCT_SYSTEM_VERITY_PARTITION := /dev/block/platform/soc/1da4000.ufshc/by-name/system
 $(call inherit-product, build/target/product/verity.mk)
 
-# Vibrator
-PRODUCT_PACKAGES += \
-    android.hardware.vibrator@1.0-impl \
-    android.hardware.vibrator@1.0-service
-
 # VNDK
 PRODUCT_PACKAGES += vndk-sp
-
-# Weaver
-PRODUCT_PACKAGES += \
-    android.hardware.weaver@1.0
 
 # Wifi
 PRODUCT_COPY_FILES += \
@@ -425,7 +335,6 @@ PRODUCT_COPY_FILES += \
     device/motorola/nash/wifi/WCNSS_qcom_cfg.ini:$(TARGET_COPY_OUT_VENDOR)/firmware/wlan/qca_cld/WCNSS_qcom_cfg.ini
 
 PRODUCT_PACKAGES += \
-    android.hardware.wifi@1.0-service \
     dhcpcd.conf \
     hostapd \
     hostapd_cli \

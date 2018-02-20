@@ -127,9 +127,9 @@ BOARD_VENDOR_QCOM_GPS_LOC_API_HARDWARE := $(TARGET_BOARD_PLATFORM)
 USING_DEVICE_GPS := true
 
 # HIDL
-# HIDL
-DEVICE_MANIFEST_FILE := $(PLATFORM_PATH)/hidl/manifest.xml
-DEVICE_MATRIX_FILE := $(PLATFORM_PATH)/hidl/compatibility_matrix.xml
+DEVICE_MANIFEST_FILE := $(DEVICE_PATH)/hidl/manifest.xml
+DEVICE_MATRIX_FILE := $(DEVICE_PATH)/hidl/compatibility_matrix.xml
+
 TARGET_FS_CONFIG_GEN += \
     $(DEVICE_PATH)/config.fs \
     $(DEVICE_PATH)/mot_aids.fs
